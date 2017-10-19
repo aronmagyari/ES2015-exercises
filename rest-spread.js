@@ -15,6 +15,11 @@ function smallestValue(...vals){
   }, vals[0])
 }
 
+// FURTHER REFINEMENT
+function smallestValue(...vals){
+	return Math.min(...vals);
+}
+
 /* 
 Write a function called placeInMiddle which accepts two parameters, an array and another array. This function should return the first array with all of the values in the second array placed in the middle of the first array.
 
@@ -26,8 +31,8 @@ Examples:
 */
 
 function placeInMiddle(arr, vals){
-  let mid = Math.floor(arr.length/2)
-  arr.splice(mid,0,...vals)
+  let mid = Math.floor(arr.length / 2);
+  arr.splice(mid, 0, ...vals);
   return arr;
 }
 /* 
@@ -43,7 +48,7 @@ Examples:
 */
 
 function joinArrays(...arrays){
-	return arrays.reduce((acc, next) => acc.concat(next), [])
+	return arrays.reduce((acc, next) => acc.concat(next), []);
 }
 
 /* 
@@ -56,8 +61,15 @@ Examples:
 */
 
 function sumEvenArgs(...args){
-    return args.filter(val => val % 2 === 0).reduce((acc,next) => acc = acc + next, 0)
+    return args.filter(val => val % 2 === 0).reduce((acc,next) => acc = acc + next, 0);
 }
+
+// FURTHER IMPROVEMENTS
+
+function sumEvenArgs(...args){
+    return args.reduce((acc,next) => next % 2 === 0 ? acc += next : acc, 0);
+}
+
 
 /* 
 Write a function called flip which accepts a function and a value for the keyword this. Flip should return a new function that when invoked, will invoke the function passed to flip with the correct value of the keyword this and all of the parameters passed to the function REVERSED. HINT - if you pass more than two parameters to flip, those parameters should be included as parameters to the inner function when it is invoked. You will have to make use of closure!
