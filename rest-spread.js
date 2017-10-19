@@ -129,7 +129,7 @@ Examples:
 
 */
 
-function bind(fn, thisArg){
+function bind(fn, thisArg, ...outerArgs){
 	return function(...innerArgs){
     return fn.apply(thisArg, [...outerArgs, ...innerArgs])
   } 
