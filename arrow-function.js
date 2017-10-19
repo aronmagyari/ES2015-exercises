@@ -15,6 +15,9 @@ function tripleAndFilter(arr) {
 		.filter(value => value % 5 === 0)
 }
 
+// FURTHER IMPROVEMENT
+
+let tripleAndFilter = arr => arr.map(val => val * 3).filter(val => val % 5 === 0)
 
 /* 2 - Refactor the following code to use ES2015 arrow functions. Make sure your function is also called doubleOddNumbers
 
@@ -32,6 +35,10 @@ function tripleAndFilter(arr) {
         return arr.filter(val => val % 2 !== 0)
         .map(val => val * 2)
     }
+
+// FURTHER IMPROVEMENT
+
+let doubleOddNumbers = arr => arr.filter(val => val % 2 !== 0).map(val => val * 2)
 
 /* 3 - Refactor the following code to use ES2015 arrow functions. Make sure your function is also called mapFilterAndReduce.
 
@@ -56,13 +63,21 @@ function tripleAndFilter(arr) {
       }, {})
     }
 
+// FURTHER IMPROVEMENT
+
+let mapFilterAndReduce = arr => arr.map(val => val.firstName).filter(val => val.length < 5)
+      	.reduce((acc,next) => {
+        acc[next] = next.length
+        return acc;
+      }, {})
+
 /* 4 - Write a function called createStudentObj which accepts two parameters, firstName and lastName and returns an object with the keys of firstName and lastName with the values as the parameters passed to the function.
 
 Example:
     createStudentObj('Elie', 'Schoppik') // {firstName: 'Elie', lastName: 'Schoppik'}
 */
 
-var createStudentObj = (firstName, lastName) => ({firstName: firstName, lastName: lastName})
+let createStudentObj = (firstName, lastName) => ({firstName: firstName, lastName: lastName})
 
 /* 5 - Given the following code: 
 
