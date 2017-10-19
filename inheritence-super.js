@@ -19,3 +19,31 @@
 //		should also have a make, model, and year and a property called numWheels which 
 //		should be 2. The Motorcycle prototype should inherit all of the methods from the 
 //		Vehicle prototype
+
+class Vehicle {
+	constructor(make, model, year) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+	}
+	start() {
+		return "VROOM!"
+	}
+	toString() {
+		return `The make, model, and year are ${this.make} ${this.model} ${this.year}`
+	}
+}
+
+class Car extends Vehicle {
+	constructor(make, model, year) {
+		super(make, model, year);
+		this.numWheels = 4;
+	}
+}
+
+class Motorcycle extends Vehicle {
+	constructor(make, model, year) {
+		super(make, model, year);
+		this.numWheels = 2;
+	}
+}
