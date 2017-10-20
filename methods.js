@@ -24,7 +24,7 @@ checkIfFinite(Infinity) // false
 */
 
 function checkIfFinite(num){
-    return Number.isFinite(num)
+    return Number.isFinite(num);
 }
 
 /*
@@ -48,7 +48,7 @@ function areAllNumbersFinite(arr){
 // FURTHER IMPROVEMENTS
 
 function areAllNumbersFinite(arr){
-  return arr.every(Number.isFinite)
+  return arr.every(Number.isFinite);
 }
 
 /* 
@@ -64,7 +64,7 @@ converted.reduce // funciton(){}...
 */
 
 function convertArrayLikeObject(obj){
-    return Array.from(obj)
+    return Array.from(obj);
 }
 
 /*
