@@ -82,6 +82,8 @@ function starWarsString(id) {
 			return $.getJSON(planetUrl)
 		}).then(function(planet) {
 			str += `and it takes place on ${planet.name}`
-			return str
+			return str;
+		}).then(function(finalString) {
+			return finalString;
 		})
 }
