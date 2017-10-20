@@ -8,8 +8,8 @@ o2.name // 'Tim'
 o.name // 'Elie'
 */
 
-function copyObject(){
-
+function copyObject(obj){
+    return Object.assign({}, obj);
 }
 
 /* 
@@ -23,13 +23,14 @@ checkIfFinite(NaN) // false
 checkIfFinite(Infinity) // false
 */
 
-function checkIfFinite(){
-
+function checkIfFinite(num){
+    return Number.isFinite(num)
 }
 
 /*
 
-Write a function called areAllNumbersFinite which accepts an array and returns true if every single value in the array is a finite number, otherwise return false.
+Write a function called areAllNumbersFinite which accepts an array and returns true if every single value in the 
+array is a finite number, otherwise return false.
 
 var finiteNums = [4,-3,2.2]
 var finiteNumsExceptOne = [4,-3,2.2,NaN]
@@ -37,13 +38,17 @@ areAllNumbersFinite(finiteNums) // true
 areAllNumbersFinite(finiteNumsExceptOne) // false
 */
 
-function areAllNumbersFinite(){
-
+function areAllNumbersFinite(arr){
+    for(let val of arr) {
+         if(!Number.isFinite(val)) return false;
+    }
+    return true;
 }
 
 /* 
 
-Write a function called convertArrayLikeObject which accepts a single parameter, an array like object. The function should return the array like object converted to an array.
+Write a function called convertArrayLikeObject which accepts a single parameter, an array like object. 
+The function should return the array like object converted to an array.
 
 var divs = document.getElementsByTagName('div')
 divs.reduce // undefined
@@ -53,20 +58,21 @@ converted.reduce // funciton(){}...
 */
 
 function convertArrayLikeObject(obj){
-
+    return Array.from(obj)
 }
 
 /*
 
-Write a function called displayEvenArguments which accepts a variable number of arguments and returns a new array with all of the arguments that are even numbers.
+Write a function called displayEvenArguments which accepts a variable number of arguments 
+and returns a new array with all of the arguments that are even numbers.
 
 displayEvenArguments(1,2,3,4,5,6) // [2,4,6]
 displayEvenArguments(7,8,9) // [8]
 displayEvenArguments(1,3,7) // []
 */
 
-function displayEvenArguments(){
-  
+function displayEvenArguments(...args){
+  return Array.from(args).filter(val => val % 2 === 0)
 }
 
 
