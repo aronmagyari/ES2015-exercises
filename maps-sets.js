@@ -15,7 +15,8 @@ class MessageBoard {
     */
     
     constructor() {
-    	
+    	this.messages = new Map;
+    	this.id = 1
     }
     
     /*
@@ -34,8 +35,10 @@ class MessageBoard {
     m.addMessage('awesome!').addMessage('nice!').addMessage('cool!') 
     */
     
-    addMessage(){
-        
+    addMessage(str){
+    	this.messages.set(this.id, str);
+    	this.id++;
+    	return this;
     }
     
     /*
@@ -56,8 +59,8 @@ class MessageBoard {
     m.findMessageById() // undefined
     */
     
-    findMessageById(){
-      
+    findMessageById(id){
+      return this.messages.get(id);
     }
     
     /*
@@ -78,8 +81,10 @@ class MessageBoard {
     */
 
     
-    findMessageByValue(){
-      
+    findMessageByValue(value){
+      for (let msg of this.messages.values()) {
+      	if(msg === value) return msg;
+      }
     }
     
     /*
@@ -96,8 +101,8 @@ class MessageBoard {
     m.removeMessage() // m
     */
     
-    removeMessage(){
-        
+    removeMessage(id){
+      return this.messages.delete(id);  
     }
     
     /*
@@ -112,7 +117,7 @@ class MessageBoard {
     */
     
     numberOfMessages(){
-        
+      return this.messages.size;
     }
     
     /*
@@ -127,7 +132,7 @@ class MessageBoard {
     */
     
     messagesToArray(){
-        
+      return Array.from(this.messages.values())
     }
 }
 
@@ -138,8 +143,8 @@ the number of unique values in the array
 uniqueValues([1,1,2,2,2,3,3,3,3,4,4,4,5,5,6]) // 6
 */
 
-function uniqueValues(){
-  
+function uniqueValues(arr){
+  return new Set(arr).size;
 }
 
 /*
@@ -152,8 +157,8 @@ hasDuplicates([1,2,3,4,5,6]) // false
 hasDuplicates([]) // false
 */
 
-function hasDuplicates(){
-  
+function hasDuplicates(arr){
+  return new Set(arr).size !== arr.length;
 }
 
 /*
@@ -171,6 +176,14 @@ countPairs([5,4,-10,6,-20,16],-4) // 2
 countPairs([0,-4],-4) // 1
 */
 
-function countPairs(){
-  
+function countPairs(arr, num){
+  var pairCount = 0;
+  var numberSet = new Set(arr);
+  for (val in arr) {
+  	numberSet.delete(val);
+  	if (numberSet.has(num - val)) {
+  		pairCount++;
+  	}
+  }
+  return pairCount;
 }
