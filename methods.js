@@ -45,6 +45,12 @@ function areAllNumbersFinite(arr){
     return true;
 }
 
+// FURTHER IMPROVEMENTS
+
+function areAllNumbersFinite(arr){
+  return arr.every(Number.isFinite)
+}
+
 /* 
 
 Write a function called convertArrayLikeObject which accepts a single parameter, an array like object. 
